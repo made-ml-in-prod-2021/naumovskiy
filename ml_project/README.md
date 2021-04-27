@@ -55,7 +55,7 @@ Project Organization
     │   │
     │   ├── entries        <- code to create entries based dataclasses (feature_params, split_params, train_params, train_pipeline_params)
     │   │
-    │   ├── data           <- code to download or generate data
+    │   ├── data           <- code to download or generate fake data(for tests)
     │   │
     │   ├── features       <- code to turn raw data into features for modeling
     │   │
