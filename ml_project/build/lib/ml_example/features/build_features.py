@@ -58,4 +58,4 @@ def build_transformer(params: FeatureParams) -> ColumnTransformer:
 
 def extract_target(df: pd.DataFrame, params: FeatureParams) -> pd.Series:
     target = df[params.target_col]
-    return pd.Series(target.to_numpy())
+    return target
