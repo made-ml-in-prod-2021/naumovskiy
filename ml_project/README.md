@@ -13,7 +13,7 @@ python setup.py install
 ~~~
 Usage:
 ~~~
-python.exe ml_example/main.py hydra.run.dir=.
+python.exe ml_example/main.py --config-dir YOUR_PATH\ml_project\configs hydra.run.dir=.
 ~~~
 
 Test:
