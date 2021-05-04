@@ -145,4 +145,4 @@ cython_debug/
 !/outputs/.gitkeep
 /reports/*.png
 /.hydra/
-/models/*.json
+/models/*
