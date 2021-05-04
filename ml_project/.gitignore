@@ -141,7 +141,8 @@ dmypy.json
 cython_debug/
 
 /ml_example.egg-info/
-/outputs/*.*
+/outputs/*
+!/outputs/.gitkeep
 /reports/*.png
 /.hydra/
 /models/*.json
