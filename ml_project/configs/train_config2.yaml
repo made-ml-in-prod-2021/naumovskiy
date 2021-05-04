@@ -1,6 +1,7 @@
 input_data_path: "data/raw/heart.csv"
 output_model_path: "models/model_v2.pkl"
 metric_path: "models/metrics.json"
+report_path: "reports/"
 splitting_params:
   val_size: 0.2
   random_state: 13

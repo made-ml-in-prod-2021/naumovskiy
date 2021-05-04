@@ -76,7 +76,8 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
     )
 
     report_file_path = report_model(
-        model, val_features_prepared, val_target.to_numpy(), training_pipeline_params.train_params
+        model, val_features_prepared, val_target.to_numpy(), training_pipeline_params.train_params,
+        training_pipeline_params.report_path
     )
     logger.info(f"report_file_path:{report_file_path}")
 
@@ -88,7 +89,7 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
     return path_to_model, metrics
 
 
-@hydra.main(config_name="configs/train_config.yaml")
+@hydra.main(config_name="train_config.yaml")
 def train_pipeline_command(cfg: DictConfig):
     logger.info("Working directory : {}".format(os.getcwd()))
     params = read_training_pipeline_params(cfg)

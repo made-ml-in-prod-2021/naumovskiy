@@ -28,22 +28,22 @@ def test_exctract_features(feature_params: FeatureParams, dataset_path: str):
     )
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def categorical_feature() -> str:
     return "categorical_feature"
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def categorical_values() -> List[str]:
     return ["cat", "dog", "cow"]
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def categorical_values_with_nan(categorical_values: List[str]) -> List[str]:
     return categorical_values + [np.nan]
 
 
-@pytest.fixture
+@pytest.fixture(scope='session')
 def fake_categorical_data(
     categorical_feature: str, categorical_values_with_nan: List[str]
 ) -> pd.DataFrame:

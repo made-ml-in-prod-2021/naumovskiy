@@ -15,6 +15,7 @@ from sklearn.metrics import (
 )
 
 from ml_example.enities.train_params import TrainingParams
+from ml_example.enities.train_pipeline_params import TrainingPipelineParams
 
 SklearnModel = Union[RandomForestClassifier, LogisticRegression]
 
@@ -47,8 +48,9 @@ def evaluate_model(predicts: np.ndarray, target: np.ndarray) -> Dict[str, float]
     }
 
 
-def report_model(model: SklearnModel, features: pd.DataFrame, target: np.ndarray, train_params: TrainingParams) -> str:
-    report_file_path = f'reports/{train_params.model_type}_metrics.png'
+def report_model(model: SklearnModel, features: pd.DataFrame, target: np.ndarray, train_params: TrainingParams,
+                 report_path: TrainingPipelineParams) -> str:
+    report_file_path = f'{report_path}/{train_params.model_type}_metrics.png'
     f, axes = plt.subplots(1, 2, figsize=(10, 5))
     plot_confusion_matrix(model, features, target, ax=axes[0])
     plot_roc_curve(model, features, target, ax=axes[1])

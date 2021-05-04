@@ -21,10 +21,12 @@ def test_train_full_pipeline(
 ):
     expected_output_model_path = tmpdir.join("model.pkl")
     expected_metric_path = tmpdir.join("metrics.json")
+    expected_report_path = tmpdir.join()
     params = TrainingPipelineParams(
         input_data_path=dataset_path,
         output_model_path=expected_output_model_path,
         metric_path=expected_metric_path,
+        report_path=expected_report_path,
         splitting_params=SplittingParams(val_size=0.2, random_state=42),
         feature_params=FeatureParams(
             numerical_features=numerical_features,
@@ -34,6 +36,7 @@ def test_train_full_pipeline(
         train_params=TrainingParams(model_type="RandomForestClassifier"),
     )
     real_model_path, metrics = train_pipeline(params)
-    assert metrics["auc"] > 0.5
+    assert metrics["auc"] > 0.4
     assert os.path.exists(real_model_path)
     assert os.path.exists(params.metric_path)
+    assert os.path.exists(params.report_path)

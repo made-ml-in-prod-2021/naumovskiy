@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from ml_example.custom.CustomTransformer import CustomTransformer
 
 from ml_example.enities.feature_params import FeatureParams
 
@@ -23,7 +24,7 @@ def process_categorical_features(categorical_df: pd.DataFrame) -> pd.DataFrame:
 def build_numerical_pipeline() -> Pipeline:
     num_pipeline = Pipeline(
         [
-            ("norm", StandardScaler()),
+            ("norm", CustomTransformer()),
         ]
     )
     return num_pipeline
@@ -56,7 +57,6 @@ def build_transformer(params: FeatureParams) -> ColumnTransformer:
     return transformer
 
 
-#
 def extract_target(df: pd.DataFrame, params: FeatureParams) -> pd.Series:
     target = df[params.target_col]
     return target
